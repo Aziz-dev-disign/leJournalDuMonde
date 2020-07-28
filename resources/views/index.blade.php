@@ -385,12 +385,23 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm3">
           <div class="footer_widget wow fadeInRightBig">
-            <h2>Jetpack Subscription Widget</h2>
-            <form action="#" class="subscribe_form">
+            @if (\Session::has('success'))
+            <div class="alert alert-success">
+              <p>{{ \Session::get('success') }}</p>
+            </div><br />
+           @endif
+           @if (\Session::has('failure'))
+            <div class="alert alert-danger">
+              <p>{{ \Session::get('failure') }}</p>
+            </div><br />
+           @endif
+            <h2>Inscrivez-vous à notre newsletters</h2><br/>
+            <form method="post" action="{{url('index')}}">
               @csrf
               <p id="subscribe-text">We promise, we will only send you awesome stuff which will make your day!</p>
-              <p id="subscribe-email">
-                <input type="text" placeholder="Email Address" name="email">
+              <p id="subscribe-email">                
+                <label for="Email" id="subscribe-text">Email:</label>
+                <input type="text" class="form-control" id="Email" name="email" placeholder="Entrer votre mail...">
               </p>
               <p id="subscribe-submit">
                 <input type="submit" value="Submit">

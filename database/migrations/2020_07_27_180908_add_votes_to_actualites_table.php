@@ -15,8 +15,9 @@ class AddVotesToActualitesTable extends Migration
     {
         Schema::table('actualites', function (Blueprint $table) {
             $table->integer('categorie_id')->unsigned()->nullable()->default(null);
-            $table->foreign('categorie_id')->references('id')->on('categorieActualites')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('categorie_id')->references('id')->on('categorie_actualites')->onUpdate('cascade')->onDelete('set null');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -27,7 +28,7 @@ class AddVotesToActualitesTable extends Migration
     public function down()
     {
         Schema::table('actualites', function (Blueprint $table) {
-            //
+            Schema::disableForeignKeyConstraints();
         });
     }
 }
