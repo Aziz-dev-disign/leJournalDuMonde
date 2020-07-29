@@ -21,9 +21,19 @@ Route::get('/', function () {
 Route::get('index','NewsLetterController@index');
 Route::post('index','NewsLetterController@store');
 
+// les routes des pages admin 
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('actualite', 'ActualiteController@index');
+    Route::post('actualite/create', 'ActualiteController@store')->name('actualite_create');
+
+    Route::get('liste', 'ActualiteController@test');    
+    Route::post('liste/create', 'ActualiteController@create')->name('test');
+});
+
 
 // les routes de voyager
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'voyager'], function () {
     Voyager::routes();
 });
 

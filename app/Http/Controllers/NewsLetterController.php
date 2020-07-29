@@ -29,9 +29,9 @@ class NewsLetterController extends Controller
         if ( ! Newsletter::isSubscribed($request->email) ) 
         {
             Newsletter::subscribePending($request->email);
-            return redirect('index')->with('success', 'Thanks For Subscribe');
+            return redirect('index')->with('success', 'Inscription reuissi !!');
         }
-        return redirect('index')->with('failure', 'Sorry! You have already subscribed ');
+        return redirect('index')->with('failure', 'Désolé ! adresse e-mail existant ');
             
     }
 }
