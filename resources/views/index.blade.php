@@ -39,8 +39,8 @@
               <li><a href="#">Reportages</a></li>
               <li><a href="#">Nos&nbspémissions</a></li>
               <li><a href="#">Contact</a></li>
-              <li><a href="#">Connexion</a></li>
-              <li><a href="#">S'inscrir</a></li>
+              <li><a href="login">Connexion</a></li>
+              <li><a href="register">S'inscrir</a></li>
             </ul>
           </div>
           <div class="search"><a class="search_icon" href="#"><i class="fa fa-search"></i></a>

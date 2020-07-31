@@ -81,9 +81,12 @@ class ActualiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        $categories = Categorie_actualite::all();
+        $actualite = Actualite::find($id);
+
+        return view('admin.edit',compact('categories','actualite'));
     }
 
     /**
