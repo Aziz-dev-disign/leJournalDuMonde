@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('contact', function () {
+    return view('pages.contact1');
+});
+
+
 // les routes du newsletters
 Route::get('index','NewsLetterController@index');
 Route::post('index','NewsLetterController@store');

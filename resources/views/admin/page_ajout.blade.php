@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Create newsletter in laravel 5.7</title>
-        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">  
-    </head>
-    <body>
-        <div class="container">
+@extends('layouts.layaut')
+
+@section('contenue')
+    
+
+    <div class="container-fluid">
         @if (\Session::has('success'))
             <div class="alert alert-success">
                 <p>{{ \Session::get('success') }}</p>
@@ -17,11 +14,11 @@
                 <p>{{ \Session::get('failure') }}</p>
             </div><br />
         @endif
-        <div class="container-fluid mt-4">
+            <div class="row justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3">
             <form action="{{route('actualite_create')}}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="row form-group">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <span class="text_color">Categorie existe :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="" checked>
@@ -48,21 +45,25 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="titre" class="text_color">Titre :</label>
                         <input type="text" name="titre" id="titre" class="form-control" placeholder="Entre un titre...">
                     </div>
-                    <div class="col-md-6">
+                </div>
+                    <div class="row form-group">
+                    <div class="col-md-12">
                         <label for="slug" class="text_color">Slug :</label>
                         <input type="text" name="slug" id="slug" class="form-control" placeholder="entre un slug.. ">
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="date" class="text_color">Date :</label>
                         <input type="date" name="date" id="date" class="form-control">
                     </div>
-                    <div class="col-md-6">
+                </div>
+                    <div class="row form-group">
+                    <div class="col-md-12">
                         <label for="contenu" class="text_color">Contenu :</label>
                         <textarea name="contenu" id="contenu" cols="30" rows="10" class="form-control"></textarea>
                     </div>
@@ -81,5 +82,4 @@
                 </div>
             </form>
         </div>
-    </body>
-</html>
+    @endsection
