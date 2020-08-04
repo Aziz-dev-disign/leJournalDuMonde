@@ -3,26 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Newsletter;
-
 use App\Actualite;
 
 use App\Categorie_actualite;
 
-class ActualiteController extends Controller
+class ActualiteAdminController extends Controller
 {
 
+    // /**
+    //  * @function construct for authentificate
+    //  */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Actualite $actualites)
+    public function index()
     {
-        
+        $categories = Categorie_actualite::all();
+        return \view('admin.page_ajout', compact('categories'));
+    }
+
+
+    public function liste(Actualite $actualites)
+    {
         $actualites = Actualite::all();
-        return view('index', compact('actualites'));
+        return view('admin.liste', compact('actualites'));
+    }
+
+    public function test()
+    {
+        return view('admin.form_test');
     }
 
     /**
@@ -30,10 +45,15 @@ class ActualiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function create(Request $request)
+    public function create()
     {
+        $nom = $request['nom'];
 
+        $categorie = new Categorie_actualite();
+        $categorie->nom = $nom;
+        $categorie->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -44,18 +64,7 @@ class ActualiteController extends Controller
      */
     public function store(Request $request)
     {
-         $imagePath = request('image')->store('uploads','public');
-        
-        Actualite::create([
-            'categorie_id'=>$request->categorie_id,
-            'titre'=>$request->titre,
-            'slug'=>$request->slug,
-            'date'=>$request->date,
-            'contenu'=>$request->contenu,
-            'image'=>$imagePath
-        ]);
-
-        return redirect()->back()->with('success', 'Actualité enregistré avec succès !!');
+        //
     }
 
     /**
@@ -69,30 +78,15 @@ class ActualiteController extends Controller
         //
     }
 
-
-    public function send(Request $request)
-    {
-        if ( ! Newsletter::isSubscribed($request->email) ) 
-        {
-            Newsletter::subscribePending($request->email);
-            return redirect('index')->with('success', 'Inscription reuissi !!');
-        }
-        return redirect('index')->with('failure', 'Désolé ! adresse e-mail existant ');
-            
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
-        $categories = Categorie_actualite::all();
-        $actualite = Actualite::find($id);
-
-        return view('admin.edit',compact('categories','actualite'));
+        //
     }
 
     /**

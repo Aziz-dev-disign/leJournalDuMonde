@@ -13,27 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+// single page
 
 Route::get('contact', function () {
-    return view('pages.contact1');
+    return view('pages.contact');
 });
+
+Route::get('single', function () {
+    return view('pages.single_page');
+});
+
+//les routes de l'actualites
+Route::get('/','ActualiteController@index');
 
 
 // les routes du newsletters
-Route::get('index','NewsLetterController@index');
-Route::post('index','NewsLetterController@store');
+Route::get('index','ActualiteController@index');
+Route::post('index','ActualiteController@send');
 
 // les routes des pages admin 
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('actualite', 'ActualiteController@index');
+    Route::get('actualite', 'ActualiteAdminController@index');
     Route::post('actualite/create', 'ActualiteController@store')->name('actualite_create');
-
-    Route::get('liste', 'ActualiteController@test');    
-    Route::post('liste/create', 'ActualiteController@create')->name('test');
+    Route::get('categorie', 'ActualiteAdminController@test');    
+    Route::post('categorie/create', 'ActualiteAdminController@create')->name('test');
+    Route::get('liste', 'ActualiteAdminController@liste');    
+    Route::get('actualite/edit/{actualite}', 'ActualiteAdminController@edit');
+    Route::get('actualite/update/{actualite}', 'ActualiteAdminController@update');
 });
 
 
@@ -45,4 +53,8 @@ Route::group(['prefix' => 'voyager'], function () {
 
 //les routes de l'authentification
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');

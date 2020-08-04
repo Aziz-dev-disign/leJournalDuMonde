@@ -6,83 +6,34 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="featured_slider">
-            <h2 class="featured_title">On Featured</h2>
-            <div class="slick_slider">
-              <div class="single_iteam"><img src="images/300x250.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x2.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x3.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x4.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x5.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x6.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x3.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
-              <div class="single_iteam"><img src="images/300x250x5.jpg" alt="">
-                <h2><a class="slider_tittle" href="#">Fusce eu nulla semper porttitor felis sit amet</a></h2>
-              </div>
+            <h2 class="featured_title">Actualités</h2>
+            <div class="slick_slider">              
+              @foreach($actualites as $actualite)
+                <div class="single_iteam"><img src="{{asset('storage').'/'.$actualite->image}}" alt="">
+                  <h2><a class="slider_tittle" href="">{{$actualite->slug}}</a></h2>
+                </div>
+              @endforeach
             </div>
+          </div>
         </div>
-      </div>
       </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-8">
             <div class="middle_content">
-              <h2>What’s Hot</h2>
+              <h2>Le Magazine</h2>              
+              @foreach($actualites as $actualite)
               <ul class="featured_nav">
                 <li class="wow fadeInDown">
-                  <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
+                  <figure class="featured_img"><a href="#"><img src="{{asset('storage').'/'.$actualite->image}}" alt=""></a></figure>
                   <article class="featured_article">
-                    <div class="article_category"><a href="#">Technology <i class="fa fa-angle-right"></i></a><a href="#">Mobile <i class="fa fa-angle-right"></i></a><a href="#">Samsung</a></div>
-                    <h2 class="article_titile"><a href="pages/single_page.html">Apple iPad Production Reaches 4 Million</a></h2>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat...</p>
-                  </article>
-                </li>
-                <li class="wow fadeInDown">
-                  <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
-                  <article class="featured_article">
-                    <div class="article_category"><a href="#">Technology <i class="fa fa-angle-right"></i></a><a href="#">Mobile <i class="fa fa-angle-right"></i></a><a href="#">Samsung</a></div>
-                    <h2 class="article_titile"><a href="pages/single_page.html">Apple iPad Production Reaches 4 Million</a></h2>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat...</p>
-                  </article>
-                </li>
-                <li class="wow fadeInDown">
-                  <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
-                  <article class="featured_article">
-                    <div class="article_category"><a href="#">Technology <i class="fa fa-angle-right"></i></a><a href="#">Mobile <i class="fa fa-angle-right"></i></a><a href="#">Samsung</a></div>
-                    <h2 class="article_titile"><a href="pages/single_page.html">Apple iPad Production Reaches 4 Million</a></h2>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat...</p>
-                  </article>
-                </li>
-                <li class="wow fadeInDown">
-                  <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
-                  <article class="featured_article">
-                    <div class="article_category"><a href="#">Technology <i class="fa fa-angle-right"></i></a><a href="#">Mobile <i class="fa fa-angle-right"></i></a><a href="#">Samsung</a></div>
-                    <h2 class="article_titile"><a href="pages/single_page.html">Apple iPad Production Reaches 4 Million</a></h2>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat...</p>
-                  </article>
-                </li>
-                <li class="wow fadeInDown">
-                  <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
-                  <article class="featured_article">
-                    <div class="article_category"><a href="#">Technology <i class="fa fa-angle-right"></i></a><a href="#">Mobile <i class="fa fa-angle-right"></i></a><a href="#">Samsung</a></div>
-                    <h2 class="article_titile"><a href="pages/single_page.html">Apple iPad Production Reaches 4 Million</a></h2>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat...</p>
+                    <div class="article_category"><a href="#">{{$actualite->date}} <i class="fa fa-angle-right"></i></a><a href="#">{{$actualite->categorie->nom}} <i class="fa fa-angle-right"></i></a><a href="#">{{$actualite->titre}}</a></div>
+                    <h2 class="article_titile"><a href="single">{{$actualite->slug}}</a></h2>
+                    <p>{{$actualite->contenu}}</p>
                   </article>
                 </li>
               </ul>
+              @endforeach
               <nav>
                 <ul class="pagination">
                   <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
@@ -99,59 +50,16 @@
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="right_sidebar">
               <div class="single_widget">
-                <h2>Popular Post</h2>
+                <h2>Actualités populaire</h2>
+                @foreach($actualites as $actualite)
                 <ul class="ppost_nav wow fadeInDown">
                   <li>
-                    <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                      <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                    <div class="media"><a class="media-left" href="single"><img src="{{asset('storage').'/'.$actualite->image}}" style="width:50px;height:50px;" alt=""></a>
+                      <div class="media-body"><a class="catg_title" href="single">{{$actualite->slug}}</a></div>
                     </div>
                   </li>
                 </ul>
+                @endforeach
               </div>
               <div class="single_widget">
                 <ul class="nav nav-tabs custom-tabs" role="tablist">
@@ -162,17 +70,17 @@
                   <div role="tabpanel" class="tab-pane fade active in" id="mostPopular">
                     <ul class="ppost_nav wow fadeInDown">
                       <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a></div>
+                        <div class="media"><a class="media-left" href="single"><img src="images/70x70.jpg" alt=""></a>
+                          <div class="media-body"><a class="catg_title" href="single">Aliquam malesuada diam eget turpis varius</a></div>
                         </div>
                       </li>
                       <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                        <div class="media"><a class="media-left" href="single"><img src="images/70x70.jpg" alt=""></a>
                           <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
                         </div>
                       </li>
                       <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                        <div class="media"><a class="media-left" href="single"><img src="images/70x70.jpg" alt=""></a>
                           <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
                         </div>
                       </li>
@@ -213,88 +121,31 @@
                       </li>
                     </ul>
                   </div>
-                  <div role="tabpanel" class="tab-pane fade" id="recentComent">
+                  <div role="tabpanel" class="tab-pane fade" id="recentComent">                    
+              @foreach($actualites as $actualite)
                     <ul class="ppost_nav wow fadeInDown">
                       <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a></div>
+                        <div class="media"><a class="media-left" href="single"><img src="{{asset('storage').'/'.$actualite->image}}" style="width:50px;height:50px;" alt=""></a>
+                          <div class="media-body"><a class="catg_title" href="single">{{$actualite->slug}}</a></div>
                         </div>
                       </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                          <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
-                        </div>
-                      </li>
-                    </ul>
+                    </ul>                    
+              @endforeach
                   </div>
                 </div>
               </div>
               <div class="single_widget">
                 <h2>Categories</h2>
-                <ul>
-                  <li class="cat-item"><a href="#">Technology</a></li>
-                  <li class="cat-item"><a href="#">Games</a></li>
-                  <li class="cat-item"><a href="#">Business</a></li>
-                  <li class="cat-item"><a href="#">Gallery</a></li>
-                  <li class="cat-item"><a href="#">Slider</a></li>
-                  <li class="cat-item"><a href="#">Life &amp; Style</a></li>
-                  <li class="cat-item"><a href="#">Sports</a></li>
-                </ul>
-              </div>
-              <div class="single_widget">
-                <h2>Category Archive</h2>
-                <select class="catgArchive">
-                  <option>Select Category</option>
-                  <option>Life styles</option>
-                  <option>Sports</option>
-                  <option>Technology</option>
-                  <option>Treads</option>
-                </select>
+                @foreach($actualites as $actualite)
+                  <ul class="labels_nav">
+                    <li><a href="{{$actualite->categorie->nom}} ">{{$actualite->categorie->nom}} </a></li>
+                  </ul>
+                  @endforeach
               </div>
               <div class="single_widget">
                 <h2>Links</h2>
                 <ul>
-                  <li><a href="#">Log in</a></li>
+                  <li><a href="login">Log in</a></li>
                   <li><a href="#">Entries RSS</a></li>
                   <li><a href="#">Comment RSS</a></li>
                   <li><a href="#">Wordpress.org</a></li>

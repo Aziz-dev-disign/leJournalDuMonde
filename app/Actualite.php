@@ -8,7 +8,7 @@ class Actualite extends Model
 {
     protected $guarded = [];
 
-    public function categorie_actualite(){
-        return $this->hasOne('App\Categorie_actualite');
+    public function categorie(){
+        return $this->belongsTo('App\Categorie_actualite');
     }
 }

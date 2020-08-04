@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/theme.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}">
 <style>
     .marges{margin-top: 100px !important}
 </style>
@@ -31,22 +30,15 @@
             <a class="navbar-brand" href="index.html"><img src="{{asset('images/logo.PNG')}}" alt=""></a></div>
           <div id="navbar" class="navbar-collapse collapse col-md-8">
             <ul class="nav navbar-nav custom_nav">
-              <li class="active"><a href="">Accueil</a></li>
-              <li><a href="international">International</a></li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">National</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="politique">Politique</a></li>
-                  <li><a href="economique">Economique</a></li>
-                  <li><a href="social">Société</a></li>
-                  <li><a href="cooperation">Coopération</a></li>
-                  <li><a href="culture">Culture</a></li>
-                </ul>
-              </li>
-              <li><a href="reportage">Reportages</a></li>
-              <li><a href="emission">Nos&nbspémissions</a></li>
-              <li><a href="contact">Contact</a></li>
-              <li><a href="login">Connexion</a></li>
-              <li><a href="register">S'inscrir</a></li>
+              <li class="active"><a href="index.html">Accueil</a></li>
+              <li><a href="actualite">Ajouter</a></li>
+              <li><a href="liste">Lister</a></li>
+              <li>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+            </li>
             </ul>
           </div>
           <div class="search"><a class="search_icon" href="#"><i class="fa fa-search"></i></a>
@@ -67,12 +59,17 @@
             <div class="row">
               <div class="col-lg-3 col-md-3 col-sm3">
                 <div class="footer_widget wow fadeInLeftBig">
-                  <h2>Catégorie</h2>                  
-                  @foreach($actualites as $actualite)
+                  <h2>Labels</h2>
                   <ul class="labels_nav">
-                    <li><a href="{{$actualite->categorie->nom}} ">{{$actualite->categorie->nom}} </a></li>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Slider</a></li>
+                    <li><a href="#">Life &amp; Style</a></li>
+                    <li><a href="#">Ver</a></li>
+                    <li><a href="#">Sports</a></li>
                   </ul>
-                  @endforeach
                 </div>
               </div>
               <div class="col-lg-3 col-md-3 col-sm3">
@@ -120,6 +117,7 @@
       <script src="{{asset('js/wow.min.js')}}"></script> 
       <script src="{{asset('js/bootstrap.min.js')}}"></script> 
       <script src="{{asset('js/slick.min.js')}}"></script> 
-      <script src="{{asset('js/custom.js')}}"></script>
+      <script src="{{asset('js/custom.js')}}"></script>      
+    <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
   </html>
