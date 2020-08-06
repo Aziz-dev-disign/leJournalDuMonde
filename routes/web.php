@@ -40,8 +40,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('categorie', 'ActualiteAdminController@test');    
     Route::post('categorie/create', 'ActualiteAdminController@create')->name('test');
     Route::get('liste', 'ActualiteAdminController@liste');    
-    Route::get('actualite/edit/{actualite}', 'ActualiteAdminController@edit');
-    Route::get('actualite/update/{actualite}', 'ActualiteAdminController@update');
+    Route::get('actualite//{actualite}/details//{id}', 'ActualiteAdminController@show')->name('details');    
+    Route::get('actualite/edit/{actualite}', 'ActualiteAdminController@edit')->name('edit');
+    Route::post('actualite/update/{actualite}', 'ActualiteAdminController@update')->name('update');
+    Route::get('actualite/supprimer/{actualite}', 'ActualiteAdminController@destroy')->name('destroy');
 });
 
 

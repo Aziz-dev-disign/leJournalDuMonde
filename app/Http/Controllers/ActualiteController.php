@@ -64,9 +64,10 @@ class ActualiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(string $actualite, int $id)
     {
-        //
+        $actualites=Actualite::find($id);
+        return view('admin.details',compact('actualites'));
     }
 
 
@@ -87,10 +88,10 @@ class ActualiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
         $categories = Categorie_actualite::all();
-        $actualite = Actualite::find($id);
+        $actualite = Actualite::findOrFail($id);
 
         return view('admin.edit',compact('categories','actualite'));
     }
@@ -102,9 +103,28 @@ class ActualiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,int $id)
     {
-        //
+        $actualite=Actualite::findOrFail($id);
+            $categorie=$actualite->categorie->nom;
+            $data=request()->validate([
+                'titre'=> ['required','string'],
+                'slug'=> ['required','string'],
+                'date'=> ['required','date'],
+                'contenu'=> ['required','string'],
+                'categorie_id'=> ['required','integer'],
+                'image'=> ['image']
+              ]);
+              if(request('image')){
+                $imagePath=request('image')->store('images','public');
+                $actualite->update(array_merge($data,['image'=>$imagePath]));
+              }
+              else{
+                
+                  $actualite->update($data);
+              }
+              $id=$actualite->categorie->id;
+              return view('admin.edit',compact('id','categorie'));
     }
 
     /**
@@ -115,6 +135,10 @@ class ActualiteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actualite=actualite::find($id);
+        $nom_categorie=$actualite->categorie->nom;
+        $id=$actualite->categorie->id;
+        $actualite->delete();
+        return view('admin.liste',['id'=>$id,'categorie'=>$nom_categorie]);
     }
 }
