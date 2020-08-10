@@ -36,14 +36,14 @@ Route::post('index','ActualiteController@send');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('actualite', 'ActualiteAdminController@index');
-    Route::post('actualite/create', 'ActualiteController@store')->name('actualite_create');
+    Route::post('actualite/create', 'ActualiteAdminController@store')->name('actualite_create');
     Route::get('categorie', 'ActualiteAdminController@test');    
     Route::post('categorie/create', 'ActualiteAdminController@create')->name('test');
-    Route::get('liste', 'ActualiteAdminController@liste');    
-    Route::get('actualite//{actualite}/details//{id}', 'ActualiteAdminController@show')->name('details');    
-    Route::get('actualite/edit/{actualite}', 'ActualiteAdminController@edit')->name('edit');
-    Route::post('actualite/update/{actualite}', 'ActualiteAdminController@update')->name('update');
-    Route::get('actualite/supprimer/{actualite}', 'ActualiteAdminController@destroy')->name('destroy');
+    Route::get('liste', 'ActualiteAdminController@liste')->name('liste');    
+    Route::get('actualite/{actualite}/details/{id}', 'ActualiteAdminController@show')->name('actualite_details');    
+    Route::get('actualite/edit/{id}', 'ActualiteAdminController@edit')->name('actualite.edit');
+    Route::post('actualite/update/{id}', 'ActualiteAdminController@update')->name('actualite.update');
+    Route::get('actualite/supprimer/{id}', 'ActualiteAdminController@destroy')->name('actualite.destroy');
 });
 
 

@@ -28,21 +28,15 @@
                   <figure class="featured_img"><a href="#"><img src="{{asset('storage').'/'.$actualite->image}}" alt=""></a></figure>
                   <article class="featured_article">
                     <div class="article_category"><a href="#">{{$actualite->date}} <i class="fa fa-angle-right"></i></a><a href="#">{{$actualite->categorie->nom}} <i class="fa fa-angle-right"></i></a><a href="#">{{$actualite->titre}}</a></div>
-                    <h2 class="article_titile"><a href="single">{{$actualite->slug}}</a></h2>
-                    <p>{{$actualite->contenu}}</p>
+                    <h2 class="article_titile"><a>{{$actualite->slug}} </a><span id="details"  class="slug" style="color: red">Details</span></h2>
+                    <p class="contenu">{{$actualite->contenu}}</p>
                   </article>
                 </li>
               </ul>
               @endforeach
               <nav>
                 <ul class="pagination">
-                  <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+                  {{$actualites->links()}}                  
                 </ul>
               </nav>
             </div>

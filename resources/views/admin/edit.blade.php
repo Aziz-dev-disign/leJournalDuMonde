@@ -4,31 +4,31 @@
 
     <div class="container-fluid marge">        
         <div class="row justify-content-center flex-wrap flex-md-nowrap align-items-center test">
-            <form action="{{route('update')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('actualite.update',['id'=>$actualite->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
                 </div>
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label for="titre" >Titre :</label>
-                        <input type="text" name="titre" id="titre" class="form-control" placeholder="Entre un titre..." value="{{ $produit->titre ? $produit->titre: '' }}">
+                        <input type="text" name="titre" id="titre" class="form-control" placeholder="Entre un titre..." value="{{ $actualite->titre ? $actualite->titre: '' }}">
                     </div>
                 </div>
                     <div class="row form-group">
                     <div class="col-md-12">
                         <label for="slug" >Slug :</label>
-                        <input type="text" name="slug" id="slug" class="form-control" placeholder="entre un slug.. " value="{{ $produit->slug ? $produit->slug: '' }}">
+                        <input type="text" name="slug" id="slug" class="form-control" placeholder="entre un slug.. " value="{{ $actualite->slug ? $actualite->slug: '' }}">
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label for="date" >Date :</label>
-                        <input type="date" name="date" id="date" class="form-control" value="{{ $produit->date ? $produit->date: '' }}">
+                        <input type="date" name="date" id="date" class="form-control" value="{{ $actualite->date ? $actualite->date: '' }}">
                     </div>
                 </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label for="contenu" >Contenu :</label>
-                        <textarea name="contenu" id="contenu" cols="30" rows="10" class="form-control" value="{{ $produit->contenu ? $produit->contenu: '' }}"></textarea>
+                        <label for="contenu" >contenu :</label>
+                        <textarea name="contenu" id="contenu" cols="30" rows="10" class="form-control" value="{{ $actualite->contenu ? $actualite->contenu: '' }}"></textarea>
                     </div>
                 </div>
                 <div class="row form-group">

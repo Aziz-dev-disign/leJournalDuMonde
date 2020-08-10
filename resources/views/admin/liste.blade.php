@@ -28,12 +28,15 @@
             <td>{{$actualite->date}}</td>
             <td>{{$actualite->categorie->nom}}</td>
             <td><img src="{{asset('storage').'/'.$actualite->image}}" style="width:50px;height:50px;" class="bf5 border rounded-circle"></td>
-            <td><a href="{{route('details',['actualite'=>$actualite->titre,'id'=>$actualite->id])}}" class="btn btn-success">Détail</a></td>
-            <td><a href="{{route('edit',['actualite'=>$actualite->id])}}" class="btn btn-primary">Modifier</a></td>
-            <td><a href="{{route('destroy',['actualite'=>$actualite->id])}}" class="btn btn-danger" >Supprimer</a></td>
+            <td><a href="{{route('actualite_details',['actualite'=>$actualite->titre,'id'=>$actualite->id])}}" class="btn btn-success">Détail</a></td>
+            <td><a href="{{route('actualite.edit',['id'=>$actualite->id])}}" class="btn btn-primary">Modifier</a></td>
+            <td><a href="{{route('actualite.destroy',['id'=>$actualite->id])}}" class="btn btn-danger" >Supprimer</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="row d-felx justify-content-center">
+        {{$actualites->links()}}
+    </div>
 
 @endsection

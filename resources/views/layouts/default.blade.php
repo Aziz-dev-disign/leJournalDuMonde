@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/theme.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/details.css')}}">
 <style>
     .marges{margin-top: 100px !important}
 </style>
@@ -121,5 +121,6 @@
       <script src="{{asset('js/bootstrap.min.js')}}"></script> 
       <script src="{{asset('js/slick.min.js')}}"></script> 
       <script src="{{asset('js/custom.js')}}"></script>
+      <script src="{{asset('js/show_contenu.js')}}"></script>
     </body>
   </html>

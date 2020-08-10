@@ -31,7 +31,7 @@ class ActualiteAdminController extends Controller
 
     public function liste(Actualite $actualites)
     {
-        $actualites = Actualite::all();
+        $actualites = Actualite::with('categorie')->paginate(5);
         return view('admin.liste', compact('actualites'));
     }
 
@@ -64,7 +64,18 @@ class ActualiteAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imagePath = request('image')->store('uploads','public');
+        
+        Actualite::create([
+            'categorie_id'=>$request->categorie_id,
+            'titre'=>$request->titre,
+            'slug'=>$request->slug,
+            'date'=>$request->date,
+            'contenu'=>$request->contenu,
+            'image'=>$imagePath
+        ]);
+
+        return redirect()->back()->with('success', 'Actualité enregistré avec succès !!');
     }
 
     /**
@@ -73,9 +84,10 @@ class ActualiteAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(string $actualite, int $id)
     {
-        //
+        $actualite = Actualite::find($id);
+        return view('admin.details',compact('actualite'));
     }
 
     /**
@@ -86,7 +98,10 @@ class ActualiteAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categorie = Categorie_actualite::all();
+        $actualite = Actualite::find($id);
+
+        return view('admin.edit',compact('categorie','actualite'));
     }
 
     /**
@@ -96,9 +111,28 @@ class ActualiteAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,int $id)
     {
-        //
+        $actualite=Actualite::find($id);
+            $categorie=$actualite->categorie->nom;
+            $data=request()->validate([
+                'titre'=> ['required','string'],
+                'slug'=> ['required','string'],
+                'date'=> ['required','date'],
+                'contenu'=> ['required','string'],
+                'categorie_id'=> ['required','integer'],
+                'image'=> ['image']
+              ]);
+              if(request('image')){
+                $imagePath=request('image')->store('images','public');
+                $actualite->update(array_merge($data,['image'=>$imagePath]));
+              }
+              else{
+                
+                  $actualite->update($data);
+              }
+              $id=$actualite->categorie->id;
+              return view('admin.edit',compact('id','categorie'));
     }
 
     /**
@@ -109,6 +143,8 @@ class ActualiteAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actualite=Actualite::find($id);
+        $actualite->delete();
+        return redirect()->route('liste');
     }
 }
